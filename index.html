@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riya's Bakes</title>
+  <meta name="description" content="Fresh, home-baked cakes, cookies and breads by Riya. Order for birthdays, gifts and everyday treats.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">Riya's Bakes</a>
+      <nav aria-label="Main">
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">Home-baked, made to order</p>
+        <h1>Riya's Bakes</h1>
+        <p class="lead">Cakes, cookies and breads baked fresh in small batches, with real butter and no shortcuts.</p>
+        <a href="#contact" class="btn">Order now</a>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <div class="container">
+        <h2>Menu</h2>
+        <p class="section-sub">Prices per item. Custom sizes and flavours on request.</p>
+        <ul class="menu-grid">
+          <li class="menu-item">
+            <div class="menu-head"><h3>Chocolate Truffle Cake</h3><span class="price">₹850</span></div>
+            <p>Rich dark chocolate sponge layered with ganache. 500 g.</p>
+          </li>
+          <li class="menu-item">
+            <div class="menu-head"><h3>Red Velvet Cupcakes</h3><span class="price">₹420</span></div>
+            <p>Box of 6, topped with cream cheese frosting.</p>
+          </li>
+          <li class="menu-item">
+            <div class="menu-head"><h3>Banana Walnut Bread</h3><span class="price">₹380</span></div>
+            <p>Moist loaf with ripe bananas and toasted walnuts.</p>
+          </li>
+          <li class="menu-item">
+            <div class="menu-head"><h3>Choco Chip Cookies</h3><span class="price">₹300</span></div>
+            <p>Box of 12, crisp edges and chewy centres.</p>
+          </li>
+          <li class="menu-item">
+            <div class="menu-head"><h3>Blueberry Cheesecake</h3><span class="price">₹950</span></div>
+            <p>Baked New York style with a blueberry compote. 500 g.</p>
+          </li>
+          <li class="menu-item">
+            <div class="menu-head"><h3>Cinnamon Rolls</h3><span class="price">₹360</span></div>
+            <p>Box of 4, soft and swirled, with vanilla glaze.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container contact-inner">
+        <div>
+          <h2>Place an order</h2>
+          <p class="section-sub">Tell me what you'd like and when you need it. I'll reply within a day to confirm.</p>
+          <a class="insta" href="https://www.instagram.com/riyasbakes" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+            Follow @riyasbakes on Instagram
+          </a>
+        </div>
+        <form class="form" id="contact-form" novalidate>
+          <label>Name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
+          <label>Message
+            <textarea name="message" rows="5" required placeholder="e.g. 1 chocolate truffle cake for Saturday"></textarea>
+          </label>
+          <button type="submit" class="btn">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Riya's Bakes</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('contact-form');
+    const status = form.querySelector('.form-status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        status.textContent = 'Please fill in your name, a valid email and a message.';
+        status.className = 'form-status error';
+        form.reportValidity();
+        return;
+      }
+      status.textContent = 'Thanks! Your message has been noted. I will be in touch soon.';
+      status.className = 'form-status ok';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
